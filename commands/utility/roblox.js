@@ -63,6 +63,7 @@ module.exports = {
             await interaction.editReply('first compression pass...');
             await execFilePromise("ffmpeg", [
                 "-i", inputPath,
+				"-af", "aformat=sample_fmts=s16",
                 "-c:a", "libvorbis",
                 "-q:a", quality,
                 "-y",
